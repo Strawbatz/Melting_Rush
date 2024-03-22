@@ -8,19 +8,13 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 public class PlayerGraphicsMovement : MonoBehaviour
 {
-    [SerializeField] Transform targetTransform;
-    [SerializeField] float speed;
-    private SpriteRenderer spriteRenderer;
-
-    void Start()
+    [SerializeField] Rigidbody2D playerMovement;
+    [SerializeField] float speedScale;
+    void LateUpdate()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-    }
 
-    void Update()
-    {
-        Vector3 targetPos = new Vector3(targetTransform.position.x, targetTransform.position.y, transform.position.z);
-        Vector3 moveVector = Vector3.Slerp(transform.position, targetPos,speed*Time.deltaTime);
+        Vector3 targetPos = new Vector3(playerMovement.transform.position.x, playerMovement.transform.position.y, transform.position.z);
+        Vector3 moveVector = Vector3.Slerp(transform.position, targetPos,playerMovement.velocity.magnitude*speedScale*Time.deltaTime);
         transform.position = moveVector;
     }
 }

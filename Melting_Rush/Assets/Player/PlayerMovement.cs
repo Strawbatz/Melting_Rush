@@ -63,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if(anchor != Vector2.zero)
         {
-            anchorLineRenderer.SetPositions(new Vector3[]{new Vector3(playerGraphics.position.x, playerGraphics.position.y), anchor});
+            anchorLineRenderer.SetPositions(new Vector3[]{new Vector3(transform.position.x, transform.position.y), anchor});
             anchorLineRenderer.enabled = true;
         } else
         {
