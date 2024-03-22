@@ -423,7 +423,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerGraphics: {fileID: 3554854679809789793}
-  playerPhysics: {fileID: 2459572335028048873}
+  playerPhysics: {fileID: 2226576983530171530}
   minScale: 0.2
-  startScale: 1
-  maxTime: 0
+  startScale: 2
+  maxTime: 10
