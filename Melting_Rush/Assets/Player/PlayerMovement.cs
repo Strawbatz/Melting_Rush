@@ -13,6 +13,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float maxAnchorDistance = 100f; 
     [SerializeField] LayerMask anchorLayers;
     [SerializeField] InputActionReference mouseButton;
+    [SerializeField] LineRenderer anchorLineRenderer;
+    [SerializeField] Transform playerGraphics;
 
     private Rigidbody2D rigidbody;
 
@@ -55,5 +57,17 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //rigidbody.velocity = movementVector.normalized*movementSpeed*Time.fixedDeltaTime;
+    }
+
+    void LateUpdate()
+    {
+        if(anchor != Vector2.zero)
+        {
+            anchorLineRenderer.SetPositions(new Vector3[]{new Vector3(playerGraphics.position.x, playerGraphics.position.y), anchor});
+            anchorLineRenderer.enabled = true;
+        } else
+        {
+            anchorLineRenderer.enabled = false;
+        }
     }
 }
