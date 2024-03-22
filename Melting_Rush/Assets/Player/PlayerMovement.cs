@@ -9,7 +9,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float slingAcceleration= 1f;
-    [SerializeField] float movementSpeed = 1f;
+    [SerializeField] float maxAnchorDistance = 100f; 
+    [SerializeField] LayerMask anchorLayers;
 
     [SerializeField] private Vector2 movementVector = Vector2.zero;
     private Rigidbody2D rigidbody;
@@ -25,8 +26,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if(Input.GetMouseButton(0))
         {
-            anchor = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            //TODO fix this with raycasting
+            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 aimDirection = (mousePos-(Vector2)transform.position).normalized;
+            RaycastHit2D hit; 
+            hit = Physics2D.Raycast(transform.position, aimDirection, maxAnchorDistance, anchorLayers);
+            anchor = hit.point;
             Debug.Log(anchor);
         }
 

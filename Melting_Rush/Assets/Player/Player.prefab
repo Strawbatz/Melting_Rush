@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 5615379217040729262}
   - component: {fileID: 4973003500482547143}
   - component: {fileID: 5362359707367151561}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PlayerPhysics
-  m_TagString: Untagged
+  m_TagString: PlayerPhysics
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74,7 +74,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slingAcceleration: 10
-  movementSpeed: 1
+  maxAnchorDistance: 20
+  anchorLayers:
+    serializedVersion: 2
+    m_Bits: 19
   movementVector: {x: 0, y: 0}
 --- !u!61 &5362359707367151561
 BoxCollider2D:
@@ -134,7 +137,7 @@ GameObject:
   - component: {fileID: 1801575212210169562}
   m_Layer: 0
   m_Name: PlayerGraphics
-  m_TagString: Untagged
+  m_TagString: PlayerGraphics
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -290,7 +293,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -383,7 +386,7 @@ GameObject:
   - component: {fileID: 7963261349809970216}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
