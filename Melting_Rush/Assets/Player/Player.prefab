@@ -425,5 +425,6 @@ MonoBehaviour:
   playerGraphics: {fileID: 3554854679809789793}
   playerPhysics: {fileID: 2226576983530171530}
   minScale: 0.2
-  startScale: 2
-  maxTime: 10
+  startScale: 1
+  massChange: 0.2
+  maxTime: 60
