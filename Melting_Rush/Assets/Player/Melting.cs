@@ -41,7 +41,7 @@ public class Melting : MonoBehaviour
         float massDifference = startMass-massChange;
 
         if(currentScale > minScale) {
-            Vector3 scaleVector = new Vector3(currentScale, currentScale, currentScale);
+            Vector3 scaleVector = new Vector3(1f, currentScale, currentScale);
             playerGraphics.localScale = scaleVector;
             pPhysicsTransform.localScale = scaleVector;
             pRigidBody.mass = startMass*(massDifference*procentOfMax + massChange);
