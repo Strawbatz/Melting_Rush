@@ -55,6 +55,9 @@ public class PlayerMovement : MonoBehaviour
         RaycastHit2D hit; 
         hit = Physics2D.Raycast(transform.position, aimDirection, maxAnchorDistance, anchorLayers);
         anchor = hit.point;
+        if(!anchor.Equals(Vector2.zero)) {
+            SoundManager.instance.PlaySound(SoundManager.Sound.RopeHit);
+        }
     }
 
     void MouseReleased(InputAction.CallbackContext ctx)

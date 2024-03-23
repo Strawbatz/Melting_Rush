@@ -9,6 +9,7 @@ public class SoundManager : MonoBehaviour {
         WallHit,
         Bounce, 
         Woosh, 
+        RampUp,
         RopeHit,
         Chiptune
     }
