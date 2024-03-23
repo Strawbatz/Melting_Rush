@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -70,4 +71,12 @@ public class PlayerMovement : MonoBehaviour
             anchorLineRenderer.enabled = false;
         }
     }
+
+    #if UNITY_EDITOR
+    void OnDrawGizmos()
+    {
+        Handles.color = Color.yellow;
+        Handles.DrawWireDisc(transform.position, Vector3.forward, maxAnchorDistance);
+    }
+    #endif
 }
