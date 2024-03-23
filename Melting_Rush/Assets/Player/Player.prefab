@@ -50,7 +50,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 0.5
   m_Material: {fileID: 6200000, guid: 8b6c35052ae45b94a9231a8d2686ea63, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -75,7 +75,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slingAcceleration: 10
-  maxAnchorDistance: 20
+  maxAnchorDistance: 17
   anchorLayers:
     serializedVersion: 2
     m_Bits: 19
@@ -620,3 +620,4 @@ MonoBehaviour:
   startScale: 1
   massChange: 0.2
   maxTime: 60
+  meltingMod: 1
