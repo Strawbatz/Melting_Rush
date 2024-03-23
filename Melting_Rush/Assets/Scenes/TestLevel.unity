@@ -911,6 +911,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6951698250466951335, guid: b045d38fe47518847b0b0400ff035aa3, type: 3}
+      propertyPath: maxTime
+      value: 88
+      objectReference: {fileID: 0}
     - target: {fileID: 7963261349809970216, guid: b045d38fe47518847b0b0400ff035aa3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1610,6 +1614,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &293020005 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4412030320039466963, guid: b045d38fe47518847b0b0400ff035aa3, type: 3}
+  m_PrefabInstance: {fileID: 209088088}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b38770a7017122e4fb468aab3ec71855, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &294339665
 GameObject:
   m_ObjectHideFlags: 0
@@ -7204,6 +7219,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1617684119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91035bcb2ca13824395c1c51b162bf3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseInspectorFoldout: 0
+  layoutInfos: []
+  buttonMethods: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &1640352126
 GameObject:
   m_ObjectHideFlags: 0
@@ -7501,6 +7534,7 @@ MonoBehaviour:
     - {fileID: 6951698250466951335, guid: b045d38fe47518847b0b0400ff035aa3, type: 3}
     - {fileID: 4255779948337801428}
     - {fileID: 2874160288665806955, guid: 14ceea040bc9d0f4fae76a914f91b413, type: 3}
+    - {fileID: 293020005}
     values:
     - {fileID: 739949341}
     - {fileID: 595828232}
@@ -7508,6 +7542,7 @@ MonoBehaviour:
     - {fileID: 1790809222}
     - {fileID: 1344750982}
     - {fileID: 566589064}
+    - {fileID: 1617684119}
   extensionEnabled: 1
   debugMode: 0
 --- !u!4 &1686107276
