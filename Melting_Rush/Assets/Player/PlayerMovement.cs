@@ -14,6 +14,7 @@ using Unity.VisualScripting;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float slingAcceleration= 1f;
+    [SerializeField] float breakMod = 2f;
 
     [SerializeField] InputActionReference mouseButton;
     [SerializeField] Transform playerGraphics;
@@ -113,11 +114,19 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    float lastDistance = 0f;
     void FixedUpdate()
     {
         if(anchor != Vector2.zero)
         {
-            rigidbody.AddForce((anchor-(Vector2)transform.position).normalized * slingAcceleration);
+            float mod = 1f;
+            float dist = Vector2.Distance(anchor,transform.position);
+            if(dist > lastDistance)
+            {
+                mod = breakMod;
+            }
+            lastDistance = dist;
+            rigidbody.AddForce((anchor-(Vector2)transform.position).normalized * slingAcceleration*mod);
         }
     }
 
