@@ -89,7 +89,11 @@ public class PlayerMovement : MonoBehaviour
         lastCollisionDir = contactDir;
         effectCoolDown = .5f;
   
-        SoundManager.instance.PlaySound(SoundManager.Sound.WallHit);
+        if(other.gameObject.CompareTag("Bouncy")) {
+            SoundManager.instance.PlaySound(SoundManager.Sound.Bounce);
+        } else {
+            SoundManager.instance.PlaySound(SoundManager.Sound.WallHit);
+        }
         StartCoroutine(Angry());
     }
 
