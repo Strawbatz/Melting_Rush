@@ -82,7 +82,6 @@ public class PlayerMovement : MonoBehaviour
 
         if(contactDir.Equals(lastCollisionDir))
         {
-            //Debug.Log(effectCoolDown);
             if(effectCoolDown > 0)
             {
                 effectCoolDown = .5f;
@@ -96,8 +95,9 @@ public class PlayerMovement : MonoBehaviour
             SoundManager.instance.PlaySound(SoundManager.Sound.Bounce);
         } else {
             SoundManager.instance.PlaySound(SoundManager.Sound.WallHit);
+            StartCoroutine(Angry());
         }
-        StartCoroutine(Angry());
+        
     }
 
     void OnCollisionExit2D(Collision2D other)
