@@ -42,6 +42,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: BackgroundDecor
+    uniqueID: 4245566105
+    locked: 0
+  - name: AnchorLine
+    uniqueID: 801714939
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
