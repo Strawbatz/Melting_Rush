@@ -14,6 +14,8 @@ using Unity.VisualScripting;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float slingAcceleration= 1f;
+    [SerializeField] float breakMod = 2f;
+    [SerializeField] Melting melting;
 
     [SerializeField] InputActionReference mouseButton;
     [SerializeField] Transform playerGraphics;
@@ -31,6 +33,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Sprite angry;
     [SerializeField] Sprite scared;
     [EndFoldout]
+    [Header("Particle System")]
+    [SerializeField] ParticleSystem skiddingParticles;
+    [SerializeField] ParticleSystem sweatingParticles;
+    [SerializeField] ParticleSystem steamingParticles;
+    float originalSkiddingEmission;
+    float originalSweatingEmission;
     private Rigidbody2D rigidbody;
 
     private Vector2 anchor = Vector2.zero;
@@ -40,6 +48,8 @@ public class PlayerMovement : MonoBehaviour
         mouseButton.action.performed += MousePressed;
         mouseButton.action.canceled += MouseReleased;
         rigidbody = GetComponent<Rigidbody2D>();
+        originalSkiddingEmission = skiddingParticles.emissionRate;
+        originalSweatingEmission = sweatingParticles.emissionRate;
     }
     
     void OnDisable()
@@ -78,6 +88,10 @@ public class PlayerMovement : MonoBehaviour
         }
         contactDir = new Vector2((contactDir.x == 0)? 0:(contactDir.x > 0)?1f:-1f, (contactDir.y == 0)?0:(contactDir.y > 0)?1f:-1f);
         //Debug.Log("contactDir " + contactDir);
+        if(contactDir.Equals(Vector2.down))
+        {
+            skiddingParticles.Play();
+        }
 
 
         if(contactDir.Equals(lastCollisionDir))
@@ -103,6 +117,8 @@ public class PlayerMovement : MonoBehaviour
     void OnCollisionExit2D(Collision2D other)
     {
         colliding = false;
+        if(lastCollisionDir.Equals(Vector2.down))
+            skiddingParticles.Stop();
     }
 
     void Update()
@@ -111,13 +127,24 @@ public class PlayerMovement : MonoBehaviour
         {
             effectCoolDown -= Time.deltaTime;
         }
+
+        sweatingParticles.emissionRate = originalSweatingEmission * melting.meltingMod;
+        skiddingParticles.emissionRate = originalSkiddingEmission * melting.meltingMod;
     }
 
+    float lastDistance = 0f;
     void FixedUpdate()
     {
         if(anchor != Vector2.zero)
         {
-            rigidbody.AddForce((anchor-(Vector2)transform.position).normalized * slingAcceleration);
+            float mod = 1f;
+            float dist = Vector2.Distance(anchor,transform.position);
+            if(dist > lastDistance)
+            {
+                mod = breakMod;
+            }
+            lastDistance = dist;
+            rigidbody.AddForce((anchor-(Vector2)transform.position).normalized * slingAcceleration*mod);
         }
     }
 
@@ -134,6 +161,11 @@ public class PlayerMovement : MonoBehaviour
             anchorLineRenderer.enabled = false;
             eyeTrans.localPosition = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - eyeTrans.position).normalized * stareIntensity;
         }
+
+        if(melting.meltingMod > 1f)
+        {
+            steamingParticles.Play();
+        } else if(steamingParticles.isPlaying) steamingParticles.Stop();
     }
     IEnumerator Angry ()
     {

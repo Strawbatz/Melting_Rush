@@ -15,7 +15,7 @@ TagManager:
   - Player
   - Water
   - UI
-  - 
+  - HeatPad
   - 
   - 
   - 
@@ -42,8 +42,17 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: BackgroundDecor
+    uniqueID: 4245566105
+    locked: 0
+  - name: AnchorLine
+    uniqueID: 801714939
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Heat
+    uniqueID: 4279538365
     locked: 0
   - name: Player
     uniqueID: 935025777

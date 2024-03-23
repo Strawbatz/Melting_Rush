@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 1000
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -140,9 +140,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 5000
-        width: 1000
-        height: 1000
+        y: 500
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,10 +160,10 @@ TextureImporter:
       name: steel_tiles_1
       rect:
         serializedVersion: 2
-        x: 1000
-        y: 5000
-        width: 1000
-        height: 1000
+        x: 100
+        y: 500
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,10 +181,10 @@ TextureImporter:
       name: steel_tiles_2
       rect:
         serializedVersion: 2
-        x: 2000
-        y: 5000
-        width: 1000
-        height: 1000
+        x: 200
+        y: 500
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -202,10 +202,10 @@ TextureImporter:
       name: steel_tiles_3
       rect:
         serializedVersion: 2
-        x: 3000
-        y: 5000
-        width: 1000
-        height: 1000
+        x: 300
+        y: 500
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -223,10 +223,10 @@ TextureImporter:
       name: steel_tiles_4
       rect:
         serializedVersion: 2
-        x: 4000
-        y: 5000
-        width: 1000
-        height: 1000
+        x: 400
+        y: 500
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -244,10 +244,10 @@ TextureImporter:
       name: steel_tiles_5
       rect:
         serializedVersion: 2
-        x: 5000
-        y: 5000
-        width: 1000
-        height: 1000
+        x: 500
+        y: 500
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -266,9 +266,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 4000
-        width: 1000
-        height: 1000
+        y: 400
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -286,10 +286,10 @@ TextureImporter:
       name: steel_tiles_7
       rect:
         serializedVersion: 2
-        x: 1000
-        y: 4000
-        width: 1000
-        height: 1000
+        x: 100
+        y: 400
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -307,10 +307,10 @@ TextureImporter:
       name: steel_tiles_8
       rect:
         serializedVersion: 2
-        x: 2000
-        y: 4000
-        width: 1000
-        height: 1000
+        x: 200
+        y: 400
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -328,10 +328,10 @@ TextureImporter:
       name: steel_tiles_9
       rect:
         serializedVersion: 2
-        x: 3000
-        y: 4000
-        width: 1000
-        height: 1000
+        x: 300
+        y: 400
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -349,10 +349,10 @@ TextureImporter:
       name: steel_tiles_10
       rect:
         serializedVersion: 2
-        x: 4000
-        y: 4000
-        width: 1000
-        height: 1000
+        x: 400
+        y: 400
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -370,10 +370,10 @@ TextureImporter:
       name: steel_tiles_11
       rect:
         serializedVersion: 2
-        x: 5000
-        y: 4000
-        width: 1000
-        height: 1000
+        x: 500
+        y: 400
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -392,9 +392,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 3000
-        width: 1000
-        height: 1000
+        y: 300
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -412,10 +412,10 @@ TextureImporter:
       name: steel_tiles_13
       rect:
         serializedVersion: 2
-        x: 1000
-        y: 3000
-        width: 1000
-        height: 1000
+        x: 100
+        y: 300
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -433,10 +433,10 @@ TextureImporter:
       name: steel_tiles_14
       rect:
         serializedVersion: 2
-        x: 2000
-        y: 3000
-        width: 1000
-        height: 1000
+        x: 200
+        y: 300
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -454,10 +454,10 @@ TextureImporter:
       name: steel_tiles_15
       rect:
         serializedVersion: 2
-        x: 3000
-        y: 3000
-        width: 1000
-        height: 1000
+        x: 300
+        y: 300
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -475,10 +475,10 @@ TextureImporter:
       name: steel_tiles_16
       rect:
         serializedVersion: 2
-        x: 4000
-        y: 3000
-        width: 1000
-        height: 1000
+        x: 400
+        y: 300
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -496,10 +496,10 @@ TextureImporter:
       name: steel_tiles_17
       rect:
         serializedVersion: 2
-        x: 5000
-        y: 3000
-        width: 1000
-        height: 1000
+        x: 500
+        y: 300
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -518,9 +518,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 2000
-        width: 1000
-        height: 1000
+        y: 200
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -538,10 +538,10 @@ TextureImporter:
       name: steel_tiles_19
       rect:
         serializedVersion: 2
-        x: 1000
-        y: 2000
-        width: 1000
-        height: 1000
+        x: 100
+        y: 200
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -559,10 +559,10 @@ TextureImporter:
       name: steel_tiles_20
       rect:
         serializedVersion: 2
-        x: 2000
-        y: 2000
-        width: 1000
-        height: 1000
+        x: 200
+        y: 200
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -580,10 +580,10 @@ TextureImporter:
       name: steel_tiles_21
       rect:
         serializedVersion: 2
-        x: 3000
-        y: 2000
-        width: 1000
-        height: 1000
+        x: 300
+        y: 200
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -601,10 +601,10 @@ TextureImporter:
       name: steel_tiles_22
       rect:
         serializedVersion: 2
-        x: 4000
-        y: 2000
-        width: 1000
-        height: 1000
+        x: 400
+        y: 200
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -622,10 +622,10 @@ TextureImporter:
       name: steel_tiles_23
       rect:
         serializedVersion: 2
-        x: 5000
-        y: 2000
-        width: 1000
-        height: 1000
+        x: 500
+        y: 200
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -644,9 +644,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1000
-        width: 1000
-        height: 1000
+        y: 100
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -664,10 +664,10 @@ TextureImporter:
       name: steel_tiles_25
       rect:
         serializedVersion: 2
-        x: 1000
-        y: 1000
-        width: 1000
-        height: 1000
+        x: 100
+        y: 100
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -685,10 +685,10 @@ TextureImporter:
       name: steel_tiles_26
       rect:
         serializedVersion: 2
-        x: 2000
-        y: 1000
-        width: 1000
-        height: 1000
+        x: 200
+        y: 100
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -706,10 +706,10 @@ TextureImporter:
       name: steel_tiles_27
       rect:
         serializedVersion: 2
-        x: 3000
-        y: 1000
-        width: 1000
-        height: 1000
+        x: 300
+        y: 100
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -727,10 +727,10 @@ TextureImporter:
       name: steel_tiles_28
       rect:
         serializedVersion: 2
-        x: 4000
-        y: 1000
-        width: 1000
-        height: 1000
+        x: 400
+        y: 100
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -748,10 +748,10 @@ TextureImporter:
       name: steel_tiles_29
       rect:
         serializedVersion: 2
-        x: 5000
-        y: 1000
-        width: 1000
-        height: 1000
+        x: 500
+        y: 100
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -759,8 +759,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bc4098b7aef27f941a0a34f6b3843b32
-      internalID: -914432005
+      spriteID: 5bcb3abb25b735f49a57e0e02dc73d59
+      internalID: -1319770364
       vertices: []
       indices: 
       edges: []
@@ -771,8 +771,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1000
-        height: 1000
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -780,8 +780,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a78bca88b9f919942b8133eb2b85c881
-      internalID: 1025935945
+      spriteID: e1c9a2a649766c54eac2c50ee303afe6
+      internalID: -480226998
       vertices: []
       indices: 
       edges: []
@@ -790,10 +790,10 @@ TextureImporter:
       name: steel_tiles_31
       rect:
         serializedVersion: 2
-        x: 1000
+        x: 100
         y: 0
-        width: 1000
-        height: 1000
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -801,8 +801,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b6b85638b955fd43914ff47f1878128
-      internalID: -426474703
+      spriteID: 08da924094b5ac543ae4a6cfcc70ff9b
+      internalID: 1241535698
       vertices: []
       indices: 
       edges: []
@@ -811,10 +811,10 @@ TextureImporter:
       name: steel_tiles_32
       rect:
         serializedVersion: 2
-        x: 2000
+        x: 200
         y: 0
-        width: 1000
-        height: 1000
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -822,8 +822,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d542f4f4a9a1cb24c96a111adad00734
-      internalID: 857115826
+      spriteID: c595eb49c07b9414a9f143ab89177194
+      internalID: -1400232214
       vertices: []
       indices: 
       edges: []
@@ -832,10 +832,10 @@ TextureImporter:
       name: steel_tiles_33
       rect:
         serializedVersion: 2
-        x: 3000
+        x: 300
         y: 0
-        width: 1000
-        height: 1000
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -843,8 +843,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a67957da31ae49c46befe30c0f5f9fcb
-      internalID: -2099177345
+      spriteID: 57ff6ae56c6466c4c9a0c95c65d596c0
+      internalID: -1789339459
       vertices: []
       indices: 
       edges: []
@@ -853,10 +853,10 @@ TextureImporter:
       name: steel_tiles_34
       rect:
         serializedVersion: 2
-        x: 4000
+        x: 400
         y: 0
-        width: 1000
-        height: 1000
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -864,8 +864,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 07eeb83078ec9e6479aae56f0aca4724
-      internalID: 568440204
+      spriteID: defd7b656eebdcc4ba0f78371ecb060c
+      internalID: -1083177463
       vertices: []
       indices: 
       edges: []
@@ -874,10 +874,10 @@ TextureImporter:
       name: steel_tiles_35
       rect:
         serializedVersion: 2
-        x: 5000
+        x: 500
         y: 0
-        width: 1000
-        height: 1000
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -885,8 +885,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b017611e170495745ace839247ed5f70
-      internalID: 1473765651
+      spriteID: b6059a168ccfd4343bfb7be971322c63
+      internalID: 1470140223
       vertices: []
       indices: 
       edges: []
@@ -924,14 +924,14 @@ TextureImporter:
       steel_tiles_26: -2138512829
       steel_tiles_27: 862230586
       steel_tiles_28: -97336436
-      steel_tiles_29: -914432005
+      steel_tiles_29: -1319770364
       steel_tiles_3: -1959057045
-      steel_tiles_30: 1025935945
-      steel_tiles_31: -426474703
-      steel_tiles_32: 857115826
-      steel_tiles_33: -2099177345
-      steel_tiles_34: 568440204
-      steel_tiles_35: 1473765651
+      steel_tiles_30: -480226998
+      steel_tiles_31: 1241535698
+      steel_tiles_32: -1400232214
+      steel_tiles_33: -1789339459
+      steel_tiles_34: -1083177463
+      steel_tiles_35: 1470140223
       steel_tiles_4: 1855928536
       steel_tiles_5: -16453180
       steel_tiles_6: 956725511
