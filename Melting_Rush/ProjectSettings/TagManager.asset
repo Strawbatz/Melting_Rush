@@ -45,6 +45,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Heat
+    uniqueID: 4279538365
+    locked: 0
   - name: Player
     uniqueID: 935025777
     locked: 0
