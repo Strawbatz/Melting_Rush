@@ -17,6 +17,7 @@ public class Melting : MonoBehaviour
     [SerializeField] private float startScale;
     [SerializeField] private float massChange;
     [SerializeField] private float maxTime;
+    public float meltingMod = 1f;
     private void Start() {
         pPhysicsTransform = playerPhysics.GetComponentInChildren<Transform>();
         pRigidBody = playerPhysics.GetComponentInChildren<Rigidbody2D>();
@@ -30,7 +31,7 @@ public class Melting : MonoBehaviour
         
     }
     private void Update() {
-        time += Time.deltaTime;
+        time += Time.deltaTime*meltingMod;
         if( time > maxTime) {
             time = maxTime;
         }
@@ -40,7 +41,7 @@ public class Melting : MonoBehaviour
         float massDifference = startMass-massChange;
 
         if(currentScale > minScale) {
-            Vector3 scaleVector = new Vector3(currentScale, currentScale, currentScale);
+            Vector3 scaleVector = new Vector3(1f, currentScale, currentScale);
             playerGraphics.localScale = scaleVector;
             pPhysicsTransform.localScale = scaleVector;
             pRigidBody.mass = startMass*(massDifference*procentOfMax + massChange);
