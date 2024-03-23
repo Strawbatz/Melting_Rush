@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float slingAcceleration= 1f;
     [SerializeField] float breakMod = 2f;
+    [SerializeField] Melting melting;
 
     [SerializeField] InputActionReference mouseButton;
     [SerializeField] Transform playerGraphics;
@@ -33,7 +34,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Sprite scared;
     [EndFoldout]
     [Header("Particle System")]
-    [SerializeField] ParticleSystem waterParticles;
+    [SerializeField] ParticleSystem skiddingParticles;
+    [SerializeField] ParticleSystem sweatingParticles;
+    [SerializeField] ParticleSystem steamingParticles;
+    float originalSkiddingEmission;
+    float originalSweatingEmission;
     private Rigidbody2D rigidbody;
 
     private Vector2 anchor = Vector2.zero;
@@ -43,6 +48,8 @@ public class PlayerMovement : MonoBehaviour
         mouseButton.action.performed += MousePressed;
         mouseButton.action.canceled += MouseReleased;
         rigidbody = GetComponent<Rigidbody2D>();
+        originalSkiddingEmission = skiddingParticles.emissionRate;
+        originalSweatingEmission = sweatingParticles.emissionRate;
     }
     
     void OnDisable()
@@ -83,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
         //Debug.Log("contactDir " + contactDir);
         if(contactDir.Equals(Vector2.down))
         {
-            waterParticles.Play();
+            skiddingParticles.Play();
         }
 
 
@@ -111,7 +118,7 @@ public class PlayerMovement : MonoBehaviour
     {
         colliding = false;
         if(lastCollisionDir.Equals(Vector2.down))
-            waterParticles.Stop();
+            skiddingParticles.Stop();
     }
 
     void Update()
@@ -120,6 +127,9 @@ public class PlayerMovement : MonoBehaviour
         {
             effectCoolDown -= Time.deltaTime;
         }
+
+        sweatingParticles.emissionRate = originalSweatingEmission * melting.meltingMod;
+        skiddingParticles.emissionRate = originalSkiddingEmission * melting.meltingMod;
     }
 
     float lastDistance = 0f;
@@ -151,6 +161,11 @@ public class PlayerMovement : MonoBehaviour
             anchorLineRenderer.enabled = false;
             eyeTrans.localPosition = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - eyeTrans.position).normalized * stareIntensity;
         }
+
+        if(melting.meltingMod > 1f)
+        {
+            steamingParticles.Play();
+        } else if(steamingParticles.isPlaying) steamingParticles.Stop();
     }
     IEnumerator Angry ()
     {
