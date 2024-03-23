@@ -75,7 +75,7 @@ public class Melting : MonoBehaviour
             eye.GetComponent<Rigidbody2D>().velocity = pRigidBody.velocity + new Vector2(Random.Range(-5f, 5f), Random.Range(-5f, 5f));
         }
         playerPhysics.SetActive(false);
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(4f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         yield return null;
     }
