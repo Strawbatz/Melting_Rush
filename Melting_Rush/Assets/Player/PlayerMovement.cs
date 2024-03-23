@@ -49,6 +49,10 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log("releaseMouse");
     }
 
+    private void OnCollisionEnter2D(Collision2D other) {
+        SoundManager.instance.PlaySound(SoundManager.Sound.WallHit);
+    }
+
     void FixedUpdate()
     {
         if(anchor != Vector2.zero)
