@@ -16,7 +16,7 @@ TagManager:
   - Water
   - UI
   - HeatPad
-  - 
+  - Background
   - 
   - 
   - 
@@ -42,6 +42,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 3341340875
+    locked: 0
   - name: BackgroundDecor
     uniqueID: 4245566105
     locked: 0
