@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using AdvancedEditorTools.Attributes;
+using System;
+using Unity.VisualScripting;
 
 [RequireComponent(typeof(Rigidbody2D))]
 /// <summary>
@@ -11,14 +14,23 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float slingAcceleration= 1f;
+
+    [SerializeField] InputActionReference mouseButton;
+    [SerializeField] Transform playerGraphics;
+    [Header("Anchor Line")]
     [SerializeField] float maxAnchorDistance = 100f; 
     [SerializeField] LayerMask anchorLayers;
-    [SerializeField] InputActionReference mouseButton;
     [SerializeField] LineRenderer anchorLineRenderer;
-    [SerializeField] Transform playerGraphics;
+
+    [Header("Eyes")]
     [SerializeField] Transform eyeTrans;
     [SerializeField] float stareIntensity;
-
+    [SerializeField] SpriteRenderer eyebrowRenderer;
+    [BeginFoldout("Eyebrows")]
+    [SerializeField] Sprite normal;
+    [SerializeField] Sprite angry;
+    [SerializeField] Sprite scared;
+    [EndFoldout]
     private Rigidbody2D rigidbody;
 
     private Vector2 anchor = Vector2.zero;
@@ -52,8 +64,22 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log("releaseMouse");
     }
 
+    private float effectCoolDown = 0f;
     private void OnCollisionEnter2D(Collision2D other) {
+
+        if(effectCoolDown > 0)
+        {
+            effectCoolDown = .5f;
+            return;
+        }
+        effectCoolDown = .5f;
+  
         SoundManager.instance.PlaySound(SoundManager.Sound.WallHit);
+        StartCoroutine(Angry());
+    }
+    void Update()
+    {
+        if(effectCoolDown > 0f) effectCoolDown -= Time.deltaTime;
     }
 
     void FixedUpdate()
@@ -62,8 +88,6 @@ public class PlayerMovement : MonoBehaviour
         {
             rigidbody.AddForce((anchor-(Vector2)transform.position).normalized * slingAcceleration);
         }
-
-        //rigidbody.velocity = movementVector.normalized*movementSpeed*Time.fixedDeltaTime;
     }
 
     void LateUpdate()
@@ -79,6 +103,12 @@ public class PlayerMovement : MonoBehaviour
             anchorLineRenderer.enabled = false;
             eyeTrans.localPosition = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - eyeTrans.position).normalized * stareIntensity;
         }
+    }
+    IEnumerator Angry ()
+    {
+        eyebrowRenderer.sprite = angry;
+        yield return new WaitForSeconds(1f);
+        eyebrowRenderer.sprite = normal;
     }
 
     #if UNITY_EDITOR
