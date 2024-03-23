@@ -8,7 +8,6 @@ public class SoundManager : MonoBehaviour {
     public enum Sound {
         WallHit,
         Bounce, 
-        Woosh, 
         RopeHit,
         Chiptune
     }

@@ -55,6 +55,9 @@ public class PlayerMovement : MonoBehaviour
         RaycastHit2D hit; 
         hit = Physics2D.Raycast(transform.position, aimDirection, maxAnchorDistance, anchorLayers);
         anchor = hit.point;
+        if(!anchor.Equals(Vector2.zero)) {
+            SoundManager.instance.PlaySound(SoundManager.Sound.RopeHit);
+        }
     }
 
     void MouseReleased(InputAction.CallbackContext ctx)
@@ -79,7 +82,6 @@ public class PlayerMovement : MonoBehaviour
 
         if(contactDir.Equals(lastCollisionDir))
         {
-            //Debug.Log(effectCoolDown);
             if(effectCoolDown > 0)
             {
                 effectCoolDown = .5f;
@@ -93,8 +95,9 @@ public class PlayerMovement : MonoBehaviour
             SoundManager.instance.PlaySound(SoundManager.Sound.Bounce);
         } else {
             SoundManager.instance.PlaySound(SoundManager.Sound.WallHit);
+            StartCoroutine(Angry());
         }
-        StartCoroutine(Angry());
+        
     }
 
     void OnCollisionExit2D(Collision2D other)
