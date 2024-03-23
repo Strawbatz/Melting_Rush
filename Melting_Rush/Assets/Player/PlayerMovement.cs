@@ -74,7 +74,11 @@ public class PlayerMovement : MonoBehaviour
         }
         effectCoolDown = .5f;
   
-        SoundManager.instance.PlaySound(SoundManager.Sound.WallHit);
+        if(other.gameObject.CompareTag("Bouncy")) {
+            SoundManager.instance.PlaySound(SoundManager.Sound.Bounce);
+        } else {
+            SoundManager.instance.PlaySound(SoundManager.Sound.WallHit);
+        }
         StartCoroutine(Angry());
     }
     void Update()
