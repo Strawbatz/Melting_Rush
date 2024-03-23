@@ -1,12 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Melting : MonoBehaviour
 {
     [SerializeField] Transform playerGraphics;
     [SerializeField] GameObject playerPhysics;
+    [SerializeField] SpriteRenderer playerRenderer;
+    [SerializeField] GameObject eyes;
+    [SerializeField] GameObject anchorLine;
+    [SerializeField] ParticleSystem deathParticles;
+    [SerializeField] GameObject[] deathEyes;
     private Transform pPhysicsTransform;
     private Rigidbody2D pRigidBody;
 
@@ -17,6 +24,8 @@ public class Melting : MonoBehaviour
     [SerializeField] private float startScale;
     [SerializeField] private float massChange;
     [SerializeField] private float maxTime;
+
+    public bool dead {get; private set;} = false;
     public float meltingMod = 1f;
     private void Start() {
         pPhysicsTransform = playerPhysics.GetComponentInChildren<Transform>();
@@ -35,6 +44,8 @@ public class Melting : MonoBehaviour
         time += Time.deltaTime*meltingMod;
         if( time > maxTime) {
             time = maxTime;
+            if(!dead)
+                StartCoroutine(PlayerDeath());
         }
         float timeLeft = maxTime - time;
         float procentOfMax = timeLeft/maxTime;
@@ -47,5 +58,25 @@ public class Melting : MonoBehaviour
             pPhysicsTransform.localScale = scaleVector;
             pRigidBody.mass = startMass*(massDifference*procentOfMax + massChange);
         }
+    }
+
+    IEnumerator PlayerDeath()
+    {
+        if(dead) yield return null;
+        dead = true;
+        eyes.SetActive(false);
+        deathParticles.gameObject.transform.position = playerPhysics.transform.position;
+        deathParticles.Play();
+        anchorLine.SetActive(false);
+        foreach (GameObject eyePrefab in deathEyes)
+        {
+            GameObject eye = Instantiate(eyePrefab) as GameObject;
+            eye.transform.position = playerPhysics.transform.position;
+            eye.GetComponent<Rigidbody2D>().velocity = pRigidBody.velocity + new Vector2(Random.Range(-5f, 5f), Random.Range(-5f, 5f));
+        }
+        playerPhysics.SetActive(false);
+        yield return new WaitForSeconds(4f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        yield return null;
     }
 }
