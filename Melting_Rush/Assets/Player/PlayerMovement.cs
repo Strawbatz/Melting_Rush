@@ -32,6 +32,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Sprite angry;
     [SerializeField] Sprite scared;
     [EndFoldout]
+    [Header("Particle System")]
+    [SerializeField] ParticleSystem waterParticles;
     private Rigidbody2D rigidbody;
 
     private Vector2 anchor = Vector2.zero;
@@ -79,6 +81,10 @@ public class PlayerMovement : MonoBehaviour
         }
         contactDir = new Vector2((contactDir.x == 0)? 0:(contactDir.x > 0)?1f:-1f, (contactDir.y == 0)?0:(contactDir.y > 0)?1f:-1f);
         //Debug.Log("contactDir " + contactDir);
+        if(contactDir.Equals(Vector2.down))
+        {
+            waterParticles.Play();
+        }
 
 
         if(contactDir.Equals(lastCollisionDir))
@@ -104,6 +110,8 @@ public class PlayerMovement : MonoBehaviour
     void OnCollisionExit2D(Collision2D other)
     {
         colliding = false;
+        if(lastCollisionDir.Equals(Vector2.down))
+            waterParticles.Stop();
     }
 
     void Update()
