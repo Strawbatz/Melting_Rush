@@ -55,31 +55,55 @@ public class PlayerMovement : MonoBehaviour
         RaycastHit2D hit; 
         hit = Physics2D.Raycast(transform.position, aimDirection, maxAnchorDistance, anchorLayers);
         anchor = hit.point;
-        Debug.Log(anchor);
     }
 
     void MouseReleased(InputAction.CallbackContext ctx)
     {
         anchor = Vector2.zero;
-        Debug.Log("releaseMouse");
     }
 
     private float effectCoolDown = 0f;
+    bool colliding;
+    Vector2 lastCollisionDir = Vector2.zero;
     private void OnCollisionEnter2D(Collision2D other) {
-
-        if(effectCoolDown > 0)
+        colliding = true;
+        Vector2 contactDir = Vector2.zero;
+        for (int i = 0; i < other.contactCount; i++)
         {
-            effectCoolDown = .5f;
-            return;
+            Vector2 tmp = (other.GetContact(i).point-(Vector2)transform.position);
+            contactDir += new Vector2((tmp.x > 0)?1f:-1f, (tmp.y > 0)?1f:-1f);
         }
+        contactDir = new Vector2((contactDir.x == 0)? 0:(contactDir.x > 0)?1f:-1f, (contactDir.y == 0)?0:(contactDir.y > 0)?1f:-1f);
+        //Debug.Log("contactDir " + contactDir);
+
+
+        if(contactDir.Equals(lastCollisionDir))
+        {
+            //Debug.Log(effectCoolDown);
+            if(effectCoolDown > 0)
+            {
+                effectCoolDown = .5f;
+                return;
+            }
+        }
+        lastCollisionDir = contactDir;
         effectCoolDown = .5f;
   
         SoundManager.instance.PlaySound(SoundManager.Sound.WallHit);
         StartCoroutine(Angry());
     }
+
+    void OnCollisionExit2D(Collision2D other)
+    {
+        colliding = false;
+    }
+
     void Update()
     {
-        if(effectCoolDown > 0f) effectCoolDown -= Time.deltaTime;
+        if(!colliding && effectCoolDown > 0f) 
+        {
+            effectCoolDown -= Time.deltaTime;
+        }
     }
 
     void FixedUpdate()
