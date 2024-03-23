@@ -57,4 +57,10 @@ MonoBehaviour:
   - sound: 2
     audioClip: {fileID: 8300000, guid: bfad15c8a9af76544ad8159a52b2149b, type: 3}
     volume: 0.205
+  - sound: 4
+    audioClip: {fileID: 8300000, guid: aa11f8ac0426935428e49aea83236165, type: 3}
+    volume: 0.606
+  - sound: 5
+    audioClip: {fileID: 8300000, guid: 2f0831fa5be17ee4eb451e32b00c189a, type: 3}
+    volume: 0.389
   audioSourcePrefab: {fileID: 8195130512907975524, guid: b1cbdcf790c8f0c4c923a29f3da5b6a1, type: 3}

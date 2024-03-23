@@ -9,23 +9,20 @@ public class SoundManager : MonoBehaviour {
         WallHit,
         Bounce, 
         RopeHit,
-        Chiptune
+        Chiptune,
+        MouseOver,
+        Click
     }
     [SerializeField] SoundAudioClip[] soundAudioClipArray;
     [SerializeField] GameObject audioSourcePrefab;
     private Stack<AudioSource> disabledSources = new Stack<AudioSource>();
 
     private void Awake() {
-        
-    }
-
-    private void Start() {
         if(instance != null) {
             Debug.LogWarning("More than one sound manager!");
         } else {
             instance = this;
         }
-        PlaySound(Sound.Chiptune);
     }
 
     public void PlaySound(Sound sound) {

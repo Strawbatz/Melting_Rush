@@ -17,7 +17,7 @@ public class MainMenu : MonoBehaviour
     }
     
     public void LoadLevel(int level) {
-        SceneManager.LoadScene("lvl"+level);
+        SceneManager.LoadScene("Level_"+level);
     }
 
     public void LevelSelect() {
@@ -38,7 +38,7 @@ public class MainMenu : MonoBehaviour
             animationIsRunning = true;
 
             buttonContainer.SetActive(true);
-            LeanTween.moveLocalX(buttonContainer, 0, 1).setEase(LeanTweenType.easeOutExpo);
+            LeanTween.moveLocalX(buttonContainer, 0, 1).setDelay(0.2f).setEase(LeanTweenType.easeOutExpo);
 
             StartCoroutine(WaitThenHide(levelsContainer, 0.5f));
             LeanTween.scale(levelsContainer, new Vector3(0f, 0f, 0f), 1f).setEase(LeanTweenType.easeOutExpo);
