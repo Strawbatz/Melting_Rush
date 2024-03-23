@@ -166,6 +166,8 @@ MonoBehaviour:
   mouseButton: {fileID: 1120369429361536294, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   anchorLineRenderer: {fileID: 4322574053369557791}
   playerGraphics: {fileID: 3554854679809789793}
+  eyeTrans: {fileID: 8187212434634238251}
+  stareIntensity: 0.5
 --- !u!61 &5362359707367151561
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -804,5 +806,5 @@ MonoBehaviour:
   minScale: 0.2
   startScale: 1
   massChange: 0.2
-  maxTime: 60
+  maxTime: 88
   meltingMod: 1

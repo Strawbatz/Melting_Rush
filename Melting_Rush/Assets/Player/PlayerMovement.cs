@@ -16,6 +16,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] InputActionReference mouseButton;
     [SerializeField] LineRenderer anchorLineRenderer;
     [SerializeField] Transform playerGraphics;
+    [SerializeField] Transform eyeTrans;
+    [SerializeField] float stareIntensity;
 
     private Rigidbody2D rigidbody;
 
@@ -70,9 +72,12 @@ public class PlayerMovement : MonoBehaviour
         {
             anchorLineRenderer.SetPositions(new Vector3[]{new Vector3(transform.position.x, transform.position.y), anchor});
             anchorLineRenderer.enabled = true;
+
+            eyeTrans.localPosition = (anchor - (Vector2)eyeTrans.position).normalized * stareIntensity;
         } else
         {
             anchorLineRenderer.enabled = false;
+            eyeTrans.localPosition = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - eyeTrans.position).normalized * stareIntensity;
         }
     }
 
