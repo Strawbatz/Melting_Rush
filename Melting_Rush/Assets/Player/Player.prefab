@@ -20360,5 +20360,5 @@ MonoBehaviour:
   minScale: 0.2
   startScale: 1
   massChange: 0.2
-  maxTime: 87.4
+  maxTime: 88
   meltingMod: 1
