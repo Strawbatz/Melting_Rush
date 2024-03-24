@@ -60,6 +60,7 @@ public class PlayerMovement : MonoBehaviour
 
     void MousePressed(InputAction.CallbackContext ctx)
     {
+        if(FindObjectOfType<EscapeMenu>().container.activeSelf) return;
         if(melting.dead) return;
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 aimDirection = (mousePos-(Vector2)transform.position).normalized;
