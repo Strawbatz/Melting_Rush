@@ -164,7 +164,7 @@ MonoBehaviour:
   slingAcceleration: 10
   breakMod: 3
   melting: {fileID: 6951698250466951335}
-  mouseButton: {fileID: 1120369429361536294, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  mouseButton: {fileID: 1120369429361536294, guid: fbf3c512675acc04fbef5ab796f8b28e, type: 3}
   playerGraphics: {fileID: 3554854679809789793}
   maxAnchorDistance: 17
   anchorLayers:
