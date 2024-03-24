@@ -55,7 +55,7 @@ MonoBehaviour:
     volume: 0.8
   - sound: 1
     audioClip: {fileID: 8300000, guid: 95d929431817dfd49bde887de60dfcf6, type: 3}
-    volume: 0.502
+    volume: 0.702
   - sound: 2
     audioClip: {fileID: 8300000, guid: bfad15c8a9af76544ad8159a52b2149b, type: 3}
     volume: 0.205
