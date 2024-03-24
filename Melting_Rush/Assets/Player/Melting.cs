@@ -59,6 +59,10 @@ public class Melting : MonoBehaviour
         }
     }
 
+    public float GetTimeLeft() {
+        return maxTime - time;
+    }
+
     IEnumerator PlayerDeath()
     {
         if(dead) yield return null;
