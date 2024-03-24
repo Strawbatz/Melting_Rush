@@ -10,10 +10,12 @@ public class EscapeMenu : MonoBehaviour
     [SerializeField] InputActionReference restart;
 
 
-    private void Awake() {
+    private void Start() {
         escape.action.performed += ToggleMenu;
         restart.action.performed += Restart;
         container.SetActive(false);
+        LeanTween.moveLocalY(pauseText, 200, 0);
+        LeanTween.moveLocalY(container, 650, 0);
     }
 
     private void OnDisable() {
@@ -34,14 +36,17 @@ public class EscapeMenu : MonoBehaviour
     }
     
     private void Pause() {
-        Time.timeScale = 0;
+        //Time.timeScale = 0;
         SoundManager.instance.ToggleMusic(true);
-        //LeanTween.moveLocalY(pauseText, -140, 1.5f).setEase(LeanTweenType.easeInOutBack);
+        LeanTween.moveLocalY(pauseText, -140, 1.5f).setEase(LeanTweenType.easeInOutBack);
+        LeanTween.moveLocalY(container, -300, 1.5f).setDelay(0.5f).setEase(LeanTweenType.easeInOutBack);
     }
 
     private void Resume() {
         Time.timeScale = 1;
         SoundManager.instance.ToggleMusic(false);
+        LeanTween.moveLocalY(pauseText, 200, 1.5f).setDelay(0.5f).setEase(LeanTweenType.easeInOutBack);
+        LeanTween.moveLocalY(container, 650, 1.5f).setEase(LeanTweenType.easeInOutBack);
     }
 
     public void Restart(InputAction.CallbackContext ctx) {
