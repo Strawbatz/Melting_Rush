@@ -153,7 +153,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6487498062654203766
 RectTransform:
   m_ObjectHideFlags: 0
@@ -365,7 +365,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   container: {fileID: 4321568848274690626}
-  Buttons: {fileID: 9111106593957405439}
+  buttons: {fileID: 9111106593957405439}
   pauseText: {fileID: 1007885587647815324}
   escape: {fileID: -4584781069842045824, guid: fbf3c512675acc04fbef5ab796f8b28e, type: 3}
   restart: {fileID: -3232796964107623767, guid: fbf3c512675acc04fbef5ab796f8b28e, type: 3}

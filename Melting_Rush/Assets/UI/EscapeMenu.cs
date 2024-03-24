@@ -1,22 +1,27 @@
 using UnityEngine;
+using System.Collections;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class EscapeMenu : MonoBehaviour
 {
     [SerializeField] public GameObject container;
-    [SerializeField] GameObject Buttons;
+    [SerializeField] GameObject buttons;
     [SerializeField] GameObject pauseText;
     [SerializeField] InputActionReference escape;
     [SerializeField] InputActionReference restart;
+
+    private bool animationIsRunning;
 
 
     private void Start() {
         escape.action.performed += ToggleMenu;
         restart.action.performed += Restart;
         container.SetActive(false);
-        //LeanTween.moveLocalY(pauseText, 200, 0);
-        //LeanTween.moveLocalY(container, 650, 0);
+        LeanTween.scale(pauseText, Vector3.zero, 0f);
+        LeanTween.scale(buttons, -Vector3.zero, 0f);
+        animationIsRunning = false;
+        
     }
 
     private void OnDisable() {
@@ -28,8 +33,7 @@ public class EscapeMenu : MonoBehaviour
         ToggleMenu();
     }
     public void ToggleMenu() {
-        container.SetActive(!container.activeSelf);
-        if(container.activeSelf) {
+        if(!container.activeSelf) {
             Pause();
         } else {
             Resume();
@@ -37,17 +41,21 @@ public class EscapeMenu : MonoBehaviour
     }
     
     private void Pause() {
+        if(animationIsRunning) return;
+        StartCoroutine(AnimationRunning(2f));
+        container.SetActive(true);
         Time.timeScale = 0;
         SoundManager.instance.ToggleMusic(true);
-        //LeanTween.moveLocalY(pauseText, -140, 1.5f).setEase(LeanTweenType.easeInOutBack);
-        //LeanTween.moveLocalY(container, -300, 1.5f).setDelay(0.5f).setEase(LeanTweenType.easeInOutBack);
+        LeanTween.scale(pauseText, Vector3.one, 1.5f).setEase(LeanTweenType.easeOutExpo).setIgnoreTimeScale(true);
+        LeanTween.scale(buttons, Vector3.one, 1.5f).setDelay(0.5f).setEase(LeanTweenType.easeOutExpo).setIgnoreTimeScale(true);
     }
 
     private void Resume() {
-        Time.timeScale = 1;
-        SoundManager.instance.ToggleMusic(false);
-        //LeanTween.moveLocalY(pauseText, 200, 1.5f).setDelay(0.5f).setEase(LeanTweenType.easeInOutBack);
-        //LeanTween.moveLocalY(container, 650, 1.5f).setEase(LeanTweenType.easeInOutBack);
+        if(animationIsRunning) return;
+        animationIsRunning = true;
+        LeanTween.scale(pauseText, Vector3.zero, 1f).setEase(LeanTweenType.easeOutExpo).setIgnoreTimeScale(true);
+        LeanTween.scale(buttons, Vector3.zero, 1f).setDelay(0.5f).setEase(LeanTweenType.easeOutExpo).setIgnoreTimeScale(true);
+        StartCoroutine(WaitThenClose(1.5f));
     }
 
     public void Restart(InputAction.CallbackContext ctx) {
@@ -66,5 +74,19 @@ public class EscapeMenu : MonoBehaviour
     public void Exit() {
         Time.timeScale = 1;
         Application.Quit();
+    }
+
+    IEnumerator AnimationRunning(float t) {
+        animationIsRunning = true;
+        yield return new WaitForSecondsRealtime(t);
+        animationIsRunning = false;
+    }
+
+    IEnumerator WaitThenClose(float t) {
+        yield return new WaitForSecondsRealtime(t);
+        container.SetActive(false);
+        Time.timeScale = 1;
+        SoundManager.instance.ToggleMusic(false);
+        animationIsRunning = false;
     }
 }
