@@ -40,6 +40,7 @@ public class Melting : MonoBehaviour
     }
     private void Update() {
         time += Time.deltaTime*meltingMod;
+        SoundManager.instance.SetMusicSpeed(meltingMod);
         if( time > maxTime) {
             time = maxTime;
             if(!dead)

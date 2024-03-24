@@ -28,6 +28,11 @@ public class SoundManager : MonoBehaviour {
         }
     }
 
+    void Start()
+    {
+        startPitch = musicSource.pitch;
+    }
+
     public void PlaySound(Sound sound) {
         AudioSource source = GetSource();
         SoundAudioClip soundAudioClip = GetAudioClip(sound);
@@ -44,6 +49,12 @@ public class SoundManager : MonoBehaviour {
             musicSource.volume = soundAudioClip.volume;
             musicSource.Play();
         }
+    }
+    
+    float startPitch;
+    public void SetMusicSpeed(float speedMod)
+    {
+        musicSource.pitch = startPitch * speedMod;
     }
 
     private SoundAudioClip GetAudioClip(Sound sound) {
