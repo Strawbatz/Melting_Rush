@@ -35,7 +35,7 @@ public class Melting : MonoBehaviour
         pPhysicsTransform.localScale = startVector;
 
         time = 0;
-        SoundManager.instance.PlaySound(SoundManager.Sound.Chiptune);
+        SoundManager.instance.PlayMusic(SoundManager.Sound.Chiptune);
         
     }
     private void Update() {
