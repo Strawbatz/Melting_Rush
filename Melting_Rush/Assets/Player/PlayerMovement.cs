@@ -136,11 +136,9 @@ public class PlayerMovement : MonoBehaviour
         
         if(melting.meltingMod > 1f && !steamingParticles.isPlaying)
         {
-            Debug.Log("Melting");
             steamingParticles.Play();
         } else if(melting.meltingMod <= 1f && steamingParticles.isPlaying)
         { 
-            Debug.Log("Not melting");
             steamingParticles.Stop();
         }
     }
