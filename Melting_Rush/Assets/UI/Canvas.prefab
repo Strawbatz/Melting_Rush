@@ -365,7 +365,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   container: {fileID: 4321568848274690626}
-  pauseText: {fileID: 0}
+  Buttons: {fileID: 9111106593957405439}
+  pauseText: {fileID: 1007885587647815324}
   escape: {fileID: -4584781069842045824, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   restart: {fileID: -3232796964107623767, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
 --- !u!1 &9111106593957405439
