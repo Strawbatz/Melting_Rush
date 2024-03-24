@@ -11,7 +11,9 @@ public class MeltingZone : MonoBehaviour
     {
         if(other.CompareTag("PlayerPhysics"))
         {
-            FindObjectOfType<Melting>().meltingMod *= meltingMod;
+            Melting melting = FindObjectOfType<Melting>();
+            if(melting != null)
+                melting.meltingMod*=meltingMod;
         }
     }
 
@@ -19,7 +21,9 @@ public class MeltingZone : MonoBehaviour
     {
         if(other.CompareTag("PlayerPhysics"))
         {
-            FindObjectOfType<Melting>().meltingMod/=meltingMod;
+            Melting melting = FindObjectOfType<Melting>();
+            if(melting != null)
+                melting.meltingMod/=meltingMod;
         }
     }
 }

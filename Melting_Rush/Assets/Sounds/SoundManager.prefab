@@ -49,19 +49,19 @@ MonoBehaviour:
   soundAudioClipArray:
   - sound: 0
     audioClip: {fileID: 8300000, guid: a7922f41eaf086c4681631e7c3c461d0, type: 3}
-    volume: 0.391
+    volume: 0.3
   - sound: 3
     audioClip: {fileID: 8300000, guid: a32ddf6e81f06ff499aa3dbc885a7e0d, type: 3}
-    volume: 0.5
+    volume: 0.4
   - sound: 1
     audioClip: {fileID: 8300000, guid: 95d929431817dfd49bde887de60dfcf6, type: 3}
-    volume: 0.6
+    volume: 0.5
   - sound: 2
     audioClip: {fileID: 8300000, guid: bfad15c8a9af76544ad8159a52b2149b, type: 3}
-    volume: 0.18
+    volume: 0.14
   - sound: 4
     audioClip: {fileID: 8300000, guid: aa11f8ac0426935428e49aea83236165, type: 3}
-    volume: 0.606
+    volume: 0.55
   - sound: 5
     audioClip: {fileID: 8300000, guid: 2f0831fa5be17ee4eb451e32b00c189a, type: 3}
     volume: 0.389
@@ -70,7 +70,7 @@ MonoBehaviour:
     volume: 0.811
   - sound: 7
     audioClip: {fileID: 8300000, guid: cf97d34d834c8234395b0f3445d04282, type: 3}
-    volume: 0.5
+    volume: 0.4
   audioSourcePrefab: {fileID: 8195130512907975524, guid: b1cbdcf790c8f0c4c923a29f3da5b6a1, type: 3}
   musicSource: {fileID: 1552063795718402422}
   speedyMusic: {fileID: 4517884352834577643}
