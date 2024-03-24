@@ -42,20 +42,20 @@ public class EscapeMenu : MonoBehaviour
     
     private void Pause() {
         if(animationIsRunning) return;
-        StartCoroutine(AnimationRunning(2f));
+        StartCoroutine(AnimationRunning(0.7f));
         container.SetActive(true);
         Time.timeScale = 0;
         SoundManager.instance.ToggleMusic(true);
-        LeanTween.scale(pauseText, Vector3.one, 1.5f).setEase(LeanTweenType.easeOutExpo).setIgnoreTimeScale(true);
-        LeanTween.scale(buttons, Vector3.one, 1.5f).setDelay(0.5f).setEase(LeanTweenType.easeOutExpo).setIgnoreTimeScale(true);
+        LeanTween.scale(pauseText, Vector3.one, 0.5f).setEase(LeanTweenType.easeOutExpo).setIgnoreTimeScale(true);
+        LeanTween.scale(buttons, Vector3.one, 0.5f).setDelay(0.2f).setEase(LeanTweenType.easeOutExpo).setIgnoreTimeScale(true);
     }
 
     private void Resume() {
         if(animationIsRunning) return;
         animationIsRunning = true;
-        LeanTween.scale(pauseText, Vector3.zero, 1f).setEase(LeanTweenType.easeOutExpo).setIgnoreTimeScale(true);
-        LeanTween.scale(buttons, Vector3.zero, 1f).setDelay(0.5f).setEase(LeanTweenType.easeOutExpo).setIgnoreTimeScale(true);
-        StartCoroutine(WaitThenClose(1.5f));
+        LeanTween.scale(pauseText, Vector3.zero, 0.5f).setEase(LeanTweenType.easeOutExpo).setIgnoreTimeScale(true);
+        LeanTween.scale(buttons, Vector3.zero, 0.5f).setDelay(0.2f).setEase(LeanTweenType.easeOutExpo).setIgnoreTimeScale(true);
+        StartCoroutine(WaitThenClose(0.7f));
     }
 
     public void Restart(InputAction.CallbackContext ctx) {
