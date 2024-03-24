@@ -26,6 +26,7 @@ public class Melting : MonoBehaviour
     public bool dead {get; private set;} = false;
     public float meltingMod = 1f;
     private void Start() {
+        Time.timeScale = 1;
         pPhysicsTransform = playerPhysics.GetComponentInChildren<Transform>();
         pRigidBody = playerPhysics.GetComponentInChildren<Rigidbody2D>();
         startMass = pRigidBody.mass;
@@ -59,8 +60,13 @@ public class Melting : MonoBehaviour
         }
     }
 
-    public float GetTimeLeft() {
-        return maxTime - time;
+    public float GetTime() {
+        return time;
+    }
+
+    public float GetIceLeft() {
+        float timeLeft = maxTime - time;
+        return timeLeft/maxTime;
     }
 
     IEnumerator PlayerDeath()

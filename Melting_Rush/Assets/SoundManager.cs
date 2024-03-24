@@ -31,6 +31,7 @@ public class SoundManager : MonoBehaviour {
     void Start()
     {
         startPitch = musicSource.pitch;
+        Time.timeScale = 1;
     }
 
     public void PlaySound(Sound sound) {
