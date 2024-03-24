@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class SoundManager : MonoBehaviour {
 
@@ -16,15 +17,14 @@ public class SoundManager : MonoBehaviour {
     [SerializeField] SoundAudioClip[] soundAudioClipArray;
     [SerializeField] GameObject audioSourcePrefab;
     private Stack<AudioSource> disabledSources = new Stack<AudioSource>();
-    private AudioSource musicSource;
+    [SerializeField] private AudioSource musicSource;
+    [SerializeField] private AudioSource speedyMusic;
 
     private void Awake() {
         if(instance != null) {
             Debug.LogWarning("More than one sound manager!");
         } else {
             instance = this;
-            GameObject obj = Instantiate(audioSourcePrefab, transform);
-            musicSource = obj.GetComponent<AudioSource>();
         }
     }
 
@@ -48,13 +48,26 @@ public class SoundManager : MonoBehaviour {
             musicSource.clip = soundAudioClip.audioClip;
             musicSource.volume = soundAudioClip.volume;
             musicSource.Play();
+            speedyMusic.clip = musicSource.clip;
+            musicStartVolume = musicSource.volume;
         }
     }
     
     float startPitch;
+    float musicStartVolume;
     public void SetMusicSpeed(float speedMod)
     {
-        musicSource.pitch = startPitch * speedMod;
+        musicSource.pitch = startPitch*speedMod;
+        if(speedMod > 1f && !speedyMusic.isPlaying)
+        {
+            musicSource.volume = 0;
+            speedyMusic.time = musicSource.time;
+            speedyMusic.Play();
+        } else if(speedMod <= 1f && speedyMusic.isPlaying)
+        {
+            speedyMusic.Stop();
+            musicSource.volume = musicStartVolume;
+        }
     }
 
     private SoundAudioClip GetAudioClip(Sound sound) {
