@@ -57,6 +57,7 @@ public class SoundManager : MonoBehaviour {
     float musicStartVolume;
     public void SetMusicSpeed(float speedMod)
     {
+        if(paused) return;
         musicSource.pitch = startPitch*speedMod;
         if(speedMod > 1f && !speedyMusic.isPlaying)
         {
@@ -80,11 +81,16 @@ public class SoundManager : MonoBehaviour {
         return null;
     }
 
+    bool paused = false;
     public void ToggleMusic(bool off) {
         if(off) {
+            paused = true;
             musicSource.Pause();
+            speedyMusic.Pause();
         } else {
+            paused = false;
             musicSource.UnPause();
+            speedyMusic.UnPause();
         }
     }
 

@@ -82,4 +82,12 @@ public class Melting : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         yield return null;
     }
+
+    public void DisablePlayer()
+    {
+        playerPhysics.SetActive(false);
+        playerGraphics.gameObject.SetActive(false);
+        anchorLine.SetActive(false);
+        eyes.SetActive(false);
+    }
 }

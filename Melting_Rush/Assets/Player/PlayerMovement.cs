@@ -111,7 +111,8 @@ public class PlayerMovement : MonoBehaviour
             SoundManager.instance.PlaySound(SoundManager.Sound.Bounce);
         } else {
             SoundManager.instance.PlaySound(SoundManager.Sound.WallHit);
-            StartCoroutine(Angry());
+            if(gameObject.activeInHierarchy)
+                StartCoroutine(Angry());
         }
         
     }
