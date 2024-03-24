@@ -24,6 +24,8 @@ public class EndSreen : MonoBehaviour
         Melting melting = FindObjectOfType<Melting>();
         container.SetActive(true);
 
+        SoundManager.instance.PlaySound(SoundManager.Sound.Complete);
+
         LeanTween.moveLocalX(escaped, 0, 1f).setEase(LeanTweenType.easeOutBack).setIgnoreTimeScale(true);
 
         iceLeft.text = (melting.GetIceLeft()*100).ToString("F0") + "% Ice left!";

@@ -12,6 +12,8 @@ public class MainMenu : MonoBehaviour
     private void Start() {
         LeanTween.scale(levelsContainer, Vector3.zero, 0f);
         LeanTween.moveLocalY(levelsContainer, -800, 0f);
+
+        SoundManager.instance.PlayMusic(SoundManager.Sound.MainMenu);
     }
     
     public void LoadLevel(int level) {

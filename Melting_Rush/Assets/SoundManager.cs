@@ -12,7 +12,9 @@ public class SoundManager : MonoBehaviour {
         RopeHit,
         Chiptune,
         MouseOver,
-        Click
+        Click,
+        Complete,
+        MainMenu
     }
     [SerializeField] SoundAudioClip[] soundAudioClipArray;
     [SerializeField] GameObject audioSourcePrefab;
@@ -48,9 +50,17 @@ public class SoundManager : MonoBehaviour {
             SoundAudioClip soundAudioClip = GetAudioClip(sound);
             musicSource.clip = soundAudioClip.audioClip;
             musicSource.volume = soundAudioClip.volume;
+            musicSource.loop = false;
             musicSource.Play();
             speedyMusic.clip = musicSource.clip;
             musicStartVolume = musicSource.volume;
+        }
+        if(sound == Sound.MainMenu) {
+            SoundAudioClip soundAudioClip = GetAudioClip(sound);
+            musicSource.clip = soundAudioClip.audioClip;
+            musicSource.volume = soundAudioClip.volume;
+            musicSource.loop = true;
+            musicSource.Play();
         }
     }
     
