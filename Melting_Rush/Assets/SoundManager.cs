@@ -43,6 +43,10 @@ public class SoundManager : MonoBehaviour {
         return null;
     }
 
+    public void ToggleSounds(bool con) {
+        
+    }
+
     private void DisableSource(AudioSource source){
         source.gameObject.SetActive(false);
         disabledSources.Push(source);
