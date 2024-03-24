@@ -131,6 +131,16 @@ public class PlayerMovement : MonoBehaviour
 
         sweatingParticles.emissionRate = originalSweatingEmission * melting.meltingMod;
         skiddingParticles.emissionRate = originalSkiddingEmission * melting.meltingMod;
+        
+        if(melting.meltingMod > 1f && !steamingParticles.isPlaying)
+        {
+            Debug.Log("Melting");
+            steamingParticles.Play();
+        } else if(melting.meltingMod <= 1f && steamingParticles.isPlaying)
+        { 
+            Debug.Log("Not melting");
+            steamingParticles.Stop();
+        }
     }
 
     float lastDistance = 0f;
@@ -162,11 +172,6 @@ public class PlayerMovement : MonoBehaviour
             anchorLineRenderer.enabled = false;
             eyeTrans.localPosition = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - eyeTrans.position).normalized * stareIntensity;
         }
-
-        if(melting.meltingMod > 1f)
-        {
-            steamingParticles.Play();
-        } else if(steamingParticles.isPlaying) steamingParticles.Stop();
     }
     IEnumerator Angry ()
     {
