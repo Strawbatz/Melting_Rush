@@ -31,7 +31,7 @@ public class EndSreen : MonoBehaviour
         iceLeft.text = (melting.GetIceLeft()*100).ToString("F0") + "% Ice left!";
         LeanTween.moveLocalX(iceLeft.gameObject, 0, 1f).setDelay(0.1f).setEase(LeanTweenType.easeOutBack).setIgnoreTimeScale(true);
 
-        timeTaken.text = "Time: " + melting.GetTime().ToString("F2");
+        timeTaken.text = "Time: " + Time.time.ToString("F2");
         LeanTween.moveLocalX(timeTaken.gameObject, 0, 1f).setDelay(0.1f).setEase(LeanTweenType.easeOutBack).setIgnoreTimeScale(true);
 
         LeanTween.moveLocalX(buttons, 0, 1f).setDelay(0.2f).setEase(LeanTweenType.easeOutBack).setIgnoreTimeScale(true);
