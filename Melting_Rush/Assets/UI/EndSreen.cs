@@ -9,6 +9,7 @@ public class EndSreen : MonoBehaviour
     [SerializeField] TextMeshProUGUI iceLeft;
     [SerializeField] TextMeshProUGUI timeTaken;
     [SerializeField] GameObject buttons;
+    private float restartTime;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +19,7 @@ public class EndSreen : MonoBehaviour
         LeanTween.moveLocalX(iceLeft.gameObject, -1700, 0f).setIgnoreTimeScale(true);
         LeanTween.moveLocalX(timeTaken.gameObject, -1700, 0f).setIgnoreTimeScale(true);
         LeanTween.moveLocalX(buttons, -1600, 0f).setIgnoreTimeScale(true);
+        restartTime = Time.time;
     }
 
     private void LevelComplete() {
@@ -31,7 +33,7 @@ public class EndSreen : MonoBehaviour
         iceLeft.text = (melting.GetIceLeft()*100).ToString("F0") + "% Ice left!";
         LeanTween.moveLocalX(iceLeft.gameObject, 0, 1f).setDelay(0.1f).setEase(LeanTweenType.easeOutBack).setIgnoreTimeScale(true);
 
-        timeTaken.text = "Time: " + Time.time.ToString("F2");
+        timeTaken.text = "Time: " + (Time.time-restartTime).ToString("F2");
         LeanTween.moveLocalX(timeTaken.gameObject, 0, 1f).setDelay(0.1f).setEase(LeanTweenType.easeOutBack).setIgnoreTimeScale(true);
 
         LeanTween.moveLocalX(buttons, 0, 1f).setDelay(0.2f).setEase(LeanTweenType.easeOutBack).setIgnoreTimeScale(true);
