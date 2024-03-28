@@ -20,7 +20,11 @@ namespace AdvancedEditorTools.DataTypes
             this.Clear();
             for (int i = 0; i < keys.Length; i++)
             {
-                this.TryAdd(keys[i], values[i]);
+                if(this != null && values != null && keys != null)
+                {
+                    if(keys[i] != null && values[i] != null)
+                        this.TryAdd(keys[i], values[i]);
+                }
             }
         }
 

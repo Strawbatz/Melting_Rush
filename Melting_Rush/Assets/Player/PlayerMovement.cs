@@ -42,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rigidbody;
 
     private Vector2 anchor = Vector2.zero;
+    bool isDesktop = false;
 
     void Start()
     {
@@ -50,6 +51,8 @@ public class PlayerMovement : MonoBehaviour
         rigidbody = GetComponent<Rigidbody2D>();
         originalSkiddingEmission = skiddingParticles.emissionRate;
         originalSweatingEmission = sweatingParticles.emissionRate;
+        isDesktop = SystemInfo.deviceType == DeviceType.Desktop;
+        Debug.Log("Is desktop = " +isDesktop);
     }
     
     void OnDisable()
@@ -62,7 +65,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if(FindObjectOfType<EscapeMenu>().container.activeSelf) return;
         if(melting.dead) return;
-        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 mousePos = Vector2.zero;
+        if(isDesktop) mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        else mousePos = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
+        if(mousePos == Vector2.zero) return;
         Vector2 aimDirection = (mousePos-(Vector2)transform.position).normalized;
         RaycastHit2D hit; 
         hit = Physics2D.Raycast(transform.position, aimDirection, maxAnchorDistance, anchorLayers);
@@ -170,7 +176,10 @@ public class PlayerMovement : MonoBehaviour
         } else
         {
             anchorLineRenderer.enabled = false;
-            eyeTrans.localPosition = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - eyeTrans.position).normalized * stareIntensity;
+            if(isDesktop)
+                eyeTrans.localPosition = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - eyeTrans.position).normalized * stareIntensity;
+            else
+                eyeTrans.localPosition = (rigidbody.velocity).normalized * stareIntensity;
         }
     }
     IEnumerator Angry ()
